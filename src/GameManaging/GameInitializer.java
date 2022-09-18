@@ -3,6 +3,7 @@ package GameManaging;
 import GameManaging.Factories.PiecesFactory;
 import InputManaging.InputManager;
 import InputManaging.SquareID;
+import Pieces.King;
 
 public class GameInitializer {
     PiecesFactory piecesFactory = new PiecesFactory();
@@ -24,6 +25,7 @@ public class GameInitializer {
         initializeBlackPawnsForNewGame(board);
     }
     private void initializePiecesForNewGame(Square[][] board){
+        GameManager gameManager = GameManager.getInstance();
         initializePawnsForNewGame(board);
         SquareID kingSquareID = new SquareID();
         board[0][0].setChessPiece(piecesFactory.makeWhiteRook());
@@ -36,6 +38,7 @@ public class GameInitializer {
         kingSquareID.setYCoordinate(0);
         kingSquareID.setXCoordinate(4);
         board[0][4].setChessPiece(piecesFactory.makeWhiteKing(kingSquareID));
+        gameManager.setPlayer1King((King) board[0][4].getPiece());
 
         board[7][0].setChessPiece(piecesFactory.makeBlackRook());
         board[7][7].setChessPiece(piecesFactory.makeBlackRook());
@@ -47,6 +50,7 @@ public class GameInitializer {
         kingSquareID.setYCoordinate(7);
         kingSquareID.setXCoordinate(4);
         board[7][4].setChessPiece(piecesFactory.makeBlackKing(kingSquareID));
+        gameManager.setPlayer2King((King) board[7][4].getPiece());
     }
     public void initializeNewGame(Square[][] board, Player player1, Player player2){
         InputManager inputManager = new InputManager();

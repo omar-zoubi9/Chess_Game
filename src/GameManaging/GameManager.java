@@ -14,6 +14,8 @@ public class GameManager {
     private final CommandsManager commandsManager = new CommandsManager();
     private final CommandChecker commandChecker = new CommandChecker();
     private final GameInitializer gameInitializer = new GameInitializer();
+    private King player1King;
+    private King player2King;
     boolean gameIsGoing = false;
     private static Player player1;
     private static Player player2;
@@ -75,11 +77,25 @@ public class GameManager {
             System.out.println();
         }
     }
+
+    public void setPlayer1King(King player1King) {
+        this.player1King = player1King;
+    }
+
+    public void setPlayer2King(King player2King) {
+        this.player2King = player2King;
+    }
+
     public void startGame() throws IOException {
         gameInitializer.initializeNewGame(board , player1 , player2);
 
         gameIsGoing = true;
         while(gameIsGoing){
+            if(player1King == null){
+                System.out.println(player2.getName() + " has won congrats");
+            }else if(player2King == null){
+                System.out.println(player1.getName() + " has won congrats");
+            }
             printBoardState();
             String turnForPlayerWithName;
             if(turnForPlayerWithID == 1){
