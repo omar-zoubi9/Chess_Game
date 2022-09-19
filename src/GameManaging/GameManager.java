@@ -85,10 +85,10 @@ public class GameManager {
     public void setPlayer2King(King player2King) {
         this.player2King = player2King;
     }
-
-    public void startGame() throws IOException {
+    public void initializeNewGame(){
         gameInitializer.initializeNewGame(board , player1 , player2);
-
+    }
+    public void startGame() throws IOException {
         gameIsGoing = true;
         while(gameIsGoing){
             if(player1King == null){
@@ -96,6 +96,7 @@ public class GameManager {
             }else if(player2King == null){
                 System.out.println(player1.getName() + " has won congrats");
             }
+
             printBoardState();
             String turnForPlayerWithName;
             if(turnForPlayerWithID == 1){
@@ -125,5 +126,13 @@ public class GameManager {
 
     public void setChessPiece(ChessPiece chessPiece, SquareID srcSquare) {
         board[srcSquare.getYCoordinate()][srcSquare.getXCoordinate()].setChessPiece(chessPiece);
+    }
+
+    public void setPlayer1Name(String player1name) {
+        player1.setName(player1name);
+    }
+
+    public void setPlayer2Name(String player2name) {
+        player2.setName(player2name);
     }
 }

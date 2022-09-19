@@ -11,6 +11,12 @@ public class InputManager {
         System.out.println("please enter player" + id +" name: ");
         return scanner.nextLine();
     }
+    public String takePlayer1Name(){
+        return takeName(1);
+    }
+    public String takePlayer2Name(){
+        return takeName(2);
+    }
     public String[] takeInputCommand(String turnForPlayerWithName) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println(turnForPlayerWithName + " please enter a command: ");

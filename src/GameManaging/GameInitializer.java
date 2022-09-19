@@ -54,8 +54,6 @@ public class GameInitializer {
     }
     public void initializeNewGame(Square[][] board, Player player1, Player player2){
         InputManager inputManager = new InputManager();
-        player1.setName(inputManager.takeName(player1.getId()));
-        player2.setName(inputManager.takeName(player2.getId()));
 
         initializePiecesForNewGame(board);
     }
