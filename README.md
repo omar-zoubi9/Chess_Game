@@ -25,7 +25,7 @@ the user entered the help command, the helper is also present in the pawn promot
 ## Pieces Factory
 
 I encapsulated the piece making to look cleaner and easier to edit game initialization
- also to encapsulate the logic to make a piece from user input after pawn promotion.
+ also to add abstraction to make a piece from user input after pawn promotion.
 
 ![logo](resources/UMLPics/piecesFactory.jpg)
 
